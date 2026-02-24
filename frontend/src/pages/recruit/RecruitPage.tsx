@@ -20,7 +20,8 @@ export default function RecruitPage() {
         <RecruitMarquee />
         <CountdownTimer />
         <div className="flex justify-center bg-black">
-          <RecruitLinkButton className="bg-white text-black hover:bg-slate-200" />
+          {/* LinkButton design is now handled internally, removing parent className overrides that was causing it to look standard */}
+          <RecruitLinkButton />
         </div>
         <RecruitEvent />
         <RecruitBootCamp />

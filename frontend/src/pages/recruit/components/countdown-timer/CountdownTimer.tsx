@@ -2,41 +2,69 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { getDateDistance } from '@toss/date'
 
+/**
+ * Countdown Timer — lives ON the Moon's surface.
+ * Styled as a lunar landing display embedded in a crater.
+ */
 export const CountdownTimer = () => {
-  /**
-   * 모집 마감 타이머
-   *
-   * @todo 새 학기 시작 시 모집 마감 시간 교체
-   */
   const endDate = useMemo(() => new Date('2026-03-04T23:59:59+09:00'), [])
-
   const [distance, setDistance] = useState(getDateDistance(new Date(), endDate))
 
   useEffect(() => {
     const timer = setInterval(() => {
       setDistance(getDateDistance(new Date(), endDate))
     }, 1000)
-
     return () => clearInterval(timer)
   }, [endDate])
 
   return (
-    <div className="flex justify-center bg-black py-12 text-white">
-      <div className="relative flex aspect-[3/1] max-h-[464px] w-3/4 max-w-[1402px] items-center justify-center rounded-[50%] border-2 lg:border-4">
-        {/* '서류 마감까지,' badge moved outside the main border styling to overlap properly */}
-        <div className="absolute -left-4 -top-6 flex aspect-[5/2] min-w-[160px] max-w-[285px] items-center justify-center rounded-[50%] bg-white px-2 text-black sm:-top-4 sm:left-4 sm:min-w-[180px] md:min-w-[200px] lg:min-w-[240px]">
-          <div className="whitespace-nowrap text-sm font-bold md:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
-            서류 마감까지,
-          </div>
+    <div className="relative z-20 flex justify-center py-16">
+      {/* Crater-like container */}
+      <div
+        className="relative flex w-[85%] max-w-[900px] flex-col items-center gap-6 rounded-[50%] px-6 py-12 sm:py-16"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(30,41,59,0.8) 0%, rgba(15,23,42,0.6) 60%, transparent 100%)',
+          boxShadow:
+            'inset 0 10px 40px rgba(0,0,0,0.6), 0 0 60px rgba(148,163,184,0.1)',
+        }}
+      >
+        {/* Label */}
+        <div className="rounded-full border border-slate-400/30 bg-slate-800/60 px-6 py-2 text-sm font-bold tracking-wider text-slate-300 backdrop-blur-sm sm:text-base">
+          🌙 서류 마감까지
         </div>
-        <div className="font-archivo text-clamp tracking-widest">
-          {padZero(distance.days)}
-          <span className="px-1 text-gray-500 opacity-50 lg:px-2">:</span>
-          {padZero(distance.hours)}
-          <span className="px-1 text-gray-500 opacity-50 lg:px-2">:</span>
-          {padZero(distance.minutes)}
-          <span className="px-1 text-gray-500 opacity-50 lg:px-2">:</span>
-          {padZero(distance.seconds)}
+
+        {/* Timer digits */}
+        <div className="flex items-baseline gap-1 font-archivo sm:gap-2">
+          {[
+            { value: distance.days, label: 'DAYS' },
+            { value: distance.hours, label: 'HRS' },
+            { value: distance.minutes, label: 'MIN' },
+            { value: distance.seconds, label: 'SEC' },
+          ].map(({ value, label }, i) => (
+            <div key={label} className="flex items-baseline">
+              {i > 0 && (
+                <span className="mx-1 text-2xl text-slate-600 sm:mx-2 sm:text-4xl">:</span>
+              )}
+              <div className="flex flex-col items-center">
+                <span
+                  className="text-4xl font-black tracking-wider sm:text-5xl md:text-6xl lg:text-7xl"
+                  style={{
+                    background:
+                      'linear-gradient(180deg, #e2e8f0 0%, #94a3b8 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    filter: 'drop-shadow(0 0 12px rgba(148,163,184,0.4))',
+                  }}
+                >
+                  {padZero(value)}
+                </span>
+                <span className="text-[10px] tracking-[0.2em] text-slate-500 sm:text-xs">
+                  {label}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -83,9 +83,8 @@ export default function RecruitPage() {
   const astroX = useTransform(
     scrollYProgress,
     [0, 0.1, 0.25, 0.35, 0.5, 0.6, 0.75, 0.85, 0.95, 1],
-    // BootCamp (0.5-0.6): moved to 85vw
-    // Moon (0.95-1): Shifted left slightly to align with the circle drawn by the user
-    ['40vw', '45vw', '78vw', '78vw', '85vw', '85vw', '88vw', '88vw', '72vw', '72vw'],
+    // Fixed X position further to the right side of the screen
+    ['90vw', '90vw', '90vw', '90vw', '90vw', '90vw', '90vw', '90vw', '90vw', '90vw'],
   )
   const astroRotate = useTransform(
     scrollYProgress,
@@ -125,6 +124,11 @@ export default function RecruitPage() {
 
   // Special yellow glow when finally landed on the Moon
   const moonGlowOpacity = useTransform(scrollYProgress, [0.92, 0.95], [0, 1])
+
+  // Section Ambient Glows - fades in when Haedal lands on that section
+  const eventGlow = useTransform(scrollYProgress, [0.15, 0.25, 0.35, 0.45], [0, 1, 1, 0])
+  const bootcampGlow = useTransform(scrollYProgress, [0.4, 0.5, 0.6, 0.7], [0, 1, 1, 0])
+  const trackGlow = useTransform(scrollYProgress, [0.65, 0.75, 0.85, 0.92], [0, 1, 1, 0])
 
   return (
     <motion.main
@@ -181,34 +185,46 @@ export default function RecruitPage() {
 
         {/* ═══ PLANET 1 — Event ═══ */}
         <motion.section
-          className="overflow-visible"
+          className="relative overflow-visible"
           initial={{ opacity: 0, x: -200 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 1, ease: 'easeOut' }}
         >
+          <motion.div
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[100px]"
+            style={{ opacity: eventGlow }}
+          />
           <RecruitEvent />
         </motion.section>
 
         {/* ═══ PLANET 2 — Boot Camp ═══ */}
         <motion.section
-          className="overflow-visible"
+          className="relative overflow-visible"
           initial={{ opacity: 0, x: 200 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 1, ease: 'easeOut' }}
         >
+          <motion.div
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/10 blur-[100px]"
+            style={{ opacity: bootcampGlow }}
+          />
           <RecruitBootCamp />
         </motion.section>
 
         {/* ═══ PLANET 3 — Track ═══ */}
         <motion.section
-          className="overflow-visible"
+          className="relative overflow-visible"
           initial={{ opacity: 0, y: 200 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 1, ease: 'easeOut' }}
         >
+          <motion.div
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-500/10 blur-[100px]"
+            style={{ opacity: trackGlow }}
+          />
           <RecruitTrack />
         </motion.section>
 

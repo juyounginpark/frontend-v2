@@ -58,7 +58,7 @@ export const BootcampAccordionCard = () => {
 
       <Card className="relative flex flex-col w-80 overflow-hidden border border-white/10 bg-black/40 px-4 py-8 text-white shadow-2xl backdrop-blur-md transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.2)] sm:w-96">
         <div className="absolute -bottom-10 -right-10 h-32 w-32 rounded-full bg-purple-500/20 blur-3xl" />
-        <div className="relative z-10 text-2xl font-bold text-purple-300 drop-shadow-md lg:text-3xl">응용반</div>
+        <div className="relative z-10 text-2xl font-bold text-purple-300 drop-shadow-md lg:text-3xl">심화반</div>
         <div className="relative z-10 flex-1 py-6 text-slate-300">
           프레임워크, 라이브러리와 같은 기술을 배우며 서비스 개발에 직접 활용해 보고 싶은 준회원분들이 선택할 수 있습니다.
         </div>
@@ -98,7 +98,7 @@ export const BootcampAccordionCard = () => {
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-2 text-slate-300">
               <div>
-                한 줄씩 배우는 머신러닝 기초, Colab으로 다양한 알고리즘 실습하기
+                프로젝트에 활용할 수 있도록 프레임워크와 인공지능 지식을 습득하고 싶은 회원분들을 대상으로 하는 반
               </div>
             </AccordionContent>
           </AccordionItem>

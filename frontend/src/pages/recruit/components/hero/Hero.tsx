@@ -63,10 +63,10 @@ export const RecruitHero = () => {
         <div
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
           style={{
-            background: 'linear-gradient(180deg, #f1f5f9 0%, #94a3b8 50%, #6366f1 100%)',
+            background: 'linear-gradient(180deg, #ffffff 0%, #cbd5e1 50%, #818cf8 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            filter: 'drop-shadow(0 0 30px rgba(99,102,241,0.4))',
+            filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.8)) drop-shadow(0 0 30px rgba(99,102,241,0.6))',
           }}
         >
           해달에 합류하세요

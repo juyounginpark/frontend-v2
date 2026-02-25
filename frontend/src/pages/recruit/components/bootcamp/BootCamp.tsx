@@ -66,33 +66,44 @@ export const RecruitBootCamp = () => {
       </motion.div>
 
       {/* ── Content ── */}
-      <div className="relative z-10 flex w-full max-w-screen-xl flex-col items-center gap-10 px-5 md:flex-row md:items-start md:justify-between">
+      <div className="relative z-10 flex w-full max-w-[1600px] flex-col items-center gap-10 px-5">
         <motion.div
-          initial={{ opacity: 0, x: -80 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="w-full max-w-lg"
+          className="w-full max-w-4xl xl:max-w-[1300px]"
         >
           <DescriptionCard
             title="부트캠프란?"
             description="해달 준회원의 필수 참여 코스로 매주 2회, 총 8차시로 진행됩니다."
-            className="mb-8 border-orange-500/20 bg-orange-950/30 text-slate-200 shadow-[0_0_40px_rgba(234,88,12,0.15)]"
+            className="border-orange-500/20 bg-orange-950/30 text-slate-200 shadow-[0_0_40px_rgba(234,88,12,0.15)]"
           />
-          <BootcampAccordionCard />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="w-full max-w-2xl"
-        >
-          <div className="rounded-2xl border border-orange-500/20 bg-black/50 p-4 shadow-[0_0_50px_rgba(234,88,12,0.2)] backdrop-blur-xl">
-            <BootcampScheduleTable />
-          </div>
-        </motion.div>
+        <div className="flex w-full flex-col items-center gap-10 xl:flex-row xl:items-start xl:justify-center">
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="w-full xl:w-auto flex justify-center"
+          >
+            <BootcampAccordionCard />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="w-full max-w-3xl xl:w-auto flex justify-center"
+          >
+            <div className="w-full rounded-2xl border border-orange-500/20 bg-black/50 p-4 shadow-[0_0_50px_rgba(234,88,12,0.2)] backdrop-blur-xl">
+              <BootcampScheduleTable />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </div>
   )

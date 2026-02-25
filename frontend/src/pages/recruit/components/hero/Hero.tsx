@@ -150,7 +150,6 @@ export const RecruitHero = () => {
                     repeat: Infinity,
                     ease: 'easeInOut',
                   }}
-                  // The origin is strictly at the 'shoulder' top-right
                   className="absolute left-0 top-10 h-10 w-10 origin-top-right"
                 >
                   {/* Arm - Attached right at the origin */}

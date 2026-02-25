@@ -78,7 +78,6 @@ export default function RecruitPage() {
 
   // Floating trajectory to "land" smoothly from top to bottom
   const astroY = useTransform(scrollYProgress, [0, 1], ['10vh', '85vh'])
-  const astroX = '90vw'
   const astroRotate = useTransform(scrollYProgress, [0, 0.5, 1], [-10, 10, -10])
   const astroScale = 1
   // Z-index stays high so Haedal is always ON TOP of the planets
@@ -142,10 +141,9 @@ export default function RecruitPage() {
 
       {/* Haedal Astronaut (scroll-synced) */}
       <motion.div
-        className="pointer-events-none fixed"
+        className="pointer-events-none fixed right-4 sm:right-6 md:right-10"
         style={{
           top: astroY,
-          left: astroX,
           rotate: astroRotate,
           scale: astroScale,
           zIndex: astroZ,

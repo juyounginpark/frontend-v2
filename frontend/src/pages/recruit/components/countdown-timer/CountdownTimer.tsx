@@ -2,10 +2,6 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { getDateDistance } from '@toss/date'
 
-/**
- * Countdown Timer — lives ON the Moon's surface.
- * Styled as a lunar landing display embedded in a crater.
- */
 export const CountdownTimer = () => {
   const endDate = useMemo(() => new Date('2026-03-04T23:59:59+09:00'), [])
   const [distance, setDistance] = useState(getDateDistance(new Date(), endDate))
@@ -19,7 +15,6 @@ export const CountdownTimer = () => {
 
   return (
     <div className="relative z-20 flex justify-center py-16">
-      {/* Crater-like container */}
       <div
         className="relative flex w-[85%] max-w-[900px] flex-col items-center gap-6 rounded-[50%] px-6 py-12 sm:py-16"
         style={{
@@ -44,7 +39,9 @@ export const CountdownTimer = () => {
           ].map(({ value, label }, i) => (
             <div key={label} className="flex items-baseline">
               {i > 0 && (
-                <span className="mx-1 text-2xl text-slate-600 sm:mx-2 sm:text-4xl">:</span>
+                <span className="mx-1 text-2xl text-slate-600 sm:mx-2 sm:text-4xl">
+                  :
+                </span>
               )}
               <div className="flex flex-col items-center">
                 <span

@@ -1,14 +1,12 @@
-import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+
+import { motion } from 'framer-motion'
 
 import { DescriptionCard } from '@/components/feature'
 import { Button, Card } from '@/components/ui'
 
 import { TrackDescriptionCard } from './description-card'
 
-/**
- * Track — Ringed Planet with visible surface bands & spots that spin.
- */
 export const RecruitTrack = () => {
   const [isExpanded, setIsExpanded] = useState(window.innerWidth > 768)
   const visibleTracks = isExpanded ? TRACK_LIST : TRACK_LIST.slice(0, 3)
@@ -23,16 +21,13 @@ export const RecruitTrack = () => {
 
   return (
     <div className="relative flex flex-col items-center overflow-hidden py-32 lg:py-48">
-      {/* Outer glow */}
       <div className="pointer-events-none absolute right-[-10%] top-[30%] sm:right-[-5%]">
         <div className="h-[500px] w-[500px] rounded-full bg-teal-600/15 blur-[100px] sm:h-[700px] sm:w-[700px]" />
       </div>
 
-      {/* Planet container — floats */}
-      <div className="pointer-events-none absolute right-[-5%] top-[35%] sm:right-0 animate-float-16s">
-        {/* Planet body with surface — spins */}
+      <div className="animate-float-16s pointer-events-none absolute right-[-5%] top-[35%] sm:right-0">
         <div
-          className="relative h-[300px] w-[300px] overflow-hidden rounded-full animate-spin-slow-70s sm:h-[450px] sm:w-[450px]"
+          className="animate-spin-slow-70s relative h-[300px] w-[300px] overflow-hidden rounded-full sm:h-[450px] sm:w-[450px]"
           style={{
             background:
               'radial-gradient(circle at 40% 35%, #5eead4 0%, #0d9488 25%, #115e59 50%, #134e4a 70%, #042f2e 100%)',
@@ -40,19 +35,16 @@ export const RecruitTrack = () => {
               '0 0 80px 20px rgba(20,184,166,0.25), inset -50px -30px 70px rgba(0,0,0,0.6)',
           }}
         >
-          {/* Atmospheric bands */}
-          <div className="absolute top-[35%] left-[-10%] h-2 w-[120%] rounded-full bg-teal-300/30" />
-          <div className="absolute top-[50%] left-[-10%] h-3 w-[120%] rounded-full bg-emerald-400/20" />
-          <div className="absolute top-[65%] left-[-10%] h-2 w-[120%] rounded-full bg-cyan-300/15" />
-          {/* Surface spots */}
-          <div className="absolute top-[28%] left-[50%] h-6 w-9 rounded-full bg-teal-200/25 blur-[1px]" />
-          <div className="absolute top-[55%] left-[30%] h-4 w-6 rounded-full bg-emerald-300/20 blur-[1px]" />
-          <div className="absolute top-[40%] left-[65%] h-3 w-4 rounded-full bg-cyan-200/20" />
+          <div className="absolute left-[-10%] top-[35%] h-2 w-[120%] rounded-full bg-teal-300/30" />
+          <div className="absolute left-[-10%] top-[50%] h-3 w-[120%] rounded-full bg-emerald-400/20" />
+          <div className="absolute left-[-10%] top-[65%] h-2 w-[120%] rounded-full bg-cyan-300/15" />
+          <div className="absolute left-[50%] top-[28%] h-6 w-9 rounded-full bg-teal-200/25 blur-[1px]" />
+          <div className="absolute left-[30%] top-[55%] h-4 w-6 rounded-full bg-emerald-300/20 blur-[1px]" />
+          <div className="absolute left-[65%] top-[40%] h-3 w-4 rounded-full bg-cyan-200/20" />
         </div>
       </div>
 
-      {/* Rings — bob with the planet */}
-      <div className="pointer-events-none absolute inset-0 animate-float-16s">
+      <div className="animate-float-16s pointer-events-none absolute inset-0">
         <div
           className="absolute right-[-15%] top-[43%] h-[100px] w-[600px] -rotate-12 rounded-[50%] sm:right-[-10%] sm:h-[140px] sm:w-[900px]"
           style={{
@@ -123,8 +115,8 @@ export const RecruitTrack = () => {
         transition={{ duration: 0.7, delay: 0.2 }}
         className="relative z-10 w-full px-6 py-10"
       >
-        <Card className="mx-auto w-full max-w-[1024px] overflow-hidden border border-teal-400/10 bg-black/40 shadow-[0_0_60px_rgba(20,184,166,0.1)] backdrop-blur-xl pb-6 pt-10">
-          <div className="pb-4 text-center text-2xl font-bold text-white sm:text-3xl md:pb-6 tracking-wide">
+        <Card className="mx-auto w-full max-w-[1024px] overflow-hidden border border-teal-400/10 bg-black/40 pb-6 pt-10 shadow-[0_0_60px_rgba(20,184,166,0.1)] backdrop-blur-xl">
+          <div className="pb-4 text-center text-2xl font-bold tracking-wide text-white sm:text-3xl md:pb-6">
             현재 개설된 트랙 LIST
           </div>
           <div className="grid grid-cols-1 gap-x-6 gap-y-5 p-4 md:grid-cols-2">

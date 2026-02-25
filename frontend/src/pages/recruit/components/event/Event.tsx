@@ -2,22 +2,16 @@ import { motion } from 'framer-motion'
 
 import { DescriptionCard } from './description-card'
 
-/**
- * Event section — Gas Giant with visible storm bands & spots that spin.
- */
 export const RecruitEvent = () => {
   return (
     <div className="relative flex flex-col items-center py-32 lg:py-48">
-      {/* Outer glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="h-[500px] w-[500px] rounded-full bg-blue-600/15 blur-[100px] sm:h-[700px] sm:w-[700px]" />
       </div>
 
-      {/* Planet container — floats up/down */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-float-12s">
-        {/* Planet body with surface features — whole thing spins */}
+      <div className="animate-float-12s pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <div
-          className="relative h-[350px] w-[350px] overflow-hidden rounded-full animate-spin-slow-60s sm:h-[500px] sm:w-[500px]"
+          className="animate-spin-slow-60s relative h-[350px] w-[350px] overflow-hidden rounded-full sm:h-[500px] sm:w-[500px]"
           style={{
             background:
               'radial-gradient(circle at 35% 30%, #818cf8 0%, #4338ca 25%, #312e81 50%, #1e1b4b 80%, #0c0a2a 100%)',
@@ -25,17 +19,14 @@ export const RecruitEvent = () => {
               '0 0 80px 20px rgba(99,102,241,0.3), inset -40px -30px 80px rgba(0,0,0,0.7)',
           }}
         >
-          {/* Storm bands — visible rotating features */}
-          <div className="absolute top-[30%] left-[-10%] h-3 w-[120%] rounded-full bg-purple-400/30 blur-[1px]" />
-          <div className="absolute top-[42%] left-[-10%] h-4 w-[120%] rounded-full bg-indigo-300/25" />
-          <div className="absolute top-[55%] left-[-10%] h-2 w-[120%] rounded-full bg-blue-400/20 blur-[1px]" />
-          <div className="absolute top-[65%] left-[-10%] h-3 w-[120%] rounded-full bg-purple-500/15" />
-          {/* Great spot */}
-          <div className="absolute top-[38%] left-[55%] h-8 w-12 rounded-full bg-purple-300/40 blur-[2px] sm:h-12 sm:w-16" />
-          <div className="absolute top-[50%] left-[25%] h-5 w-8 rounded-full bg-indigo-200/25 blur-[1px] sm:h-7 sm:w-10" />
-          {/* Surface texture spots */}
-          <div className="absolute top-[20%] left-[40%] h-4 w-6 rounded-full bg-violet-300/20 blur-[1px]" />
-          <div className="absolute top-[70%] left-[60%] h-3 w-5 rounded-full bg-blue-300/15 blur-[1px]" />
+          <div className="absolute left-[-10%] top-[30%] h-3 w-[120%] rounded-full bg-purple-400/30 blur-[1px]" />
+          <div className="absolute left-[-10%] top-[42%] h-4 w-[120%] rounded-full bg-indigo-300/25" />
+          <div className="absolute left-[-10%] top-[55%] h-2 w-[120%] rounded-full bg-blue-400/20 blur-[1px]" />
+          <div className="absolute left-[-10%] top-[65%] h-3 w-[120%] rounded-full bg-purple-500/15" />
+          <div className="absolute left-[55%] top-[38%] h-8 w-12 rounded-full bg-purple-300/40 blur-[2px] sm:h-12 sm:w-16" />
+          <div className="absolute left-[25%] top-[50%] h-5 w-8 rounded-full bg-indigo-200/25 blur-[1px] sm:h-7 sm:w-10" />
+          <div className="absolute left-[40%] top-[20%] h-4 w-6 rounded-full bg-violet-300/20 blur-[1px]" />
+          <div className="absolute left-[60%] top-[70%] h-3 w-5 rounded-full bg-blue-300/15 blur-[1px]" />
         </div>
       </div>
 
@@ -91,19 +82,22 @@ const EVENTS_DETAIL = [
   {
     id: 1,
     title: '해크닉\n& MT',
-    description: '준회원들의 시간인 해크닉과, 모두가 함께 즐기는 MT도 준비 완료',
+    description:
+      '준회원들의 시간인 해크닉과, 모두가 함께 즐기는 MT도 준비 완료',
     accentColor: '#818cf8',
   },
   {
     id: 2,
     title: '아이디어톤\n& 해커톤',
-    description: '우리의 멋있는 아이디어를 빌드업하고 제대로 구현해볼 수 있는 기회',
+    description:
+      '우리의 멋있는 아이디어를 빌드업하고 제대로 구현해볼 수 있는 기회',
     accentColor: '#67e8f9',
   },
   {
     id: 3,
     title: '슬기로운\n 해달생활',
-    description: '해달에서 지켜주는 맛있는 시험기간입니다. 공부 인증형 간식 마차',
+    description:
+      '해달에서 지켜주는 맛있는 시험기간입니다. 공부 인증형 간식 마차',
     accentColor: '#93c5fd',
   },
   {

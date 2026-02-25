@@ -2,8 +2,8 @@ import { cn } from '@/lib/utils'
 
 export const BootcampScheduleTable = () => {
   return (
-    <div className="max-w-[860px] px-5 py-10">
-      <div className="overflow-hidden rounded-xl border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)] bg-black/40 backdrop-blur-md">
+    <div className="flex h-full w-full justify-center">
+      <div className="w-full overflow-hidden rounded-xl border border-white/10 bg-black/40 shadow-[0_0_30px_rgba(255,255,255,0.05)] backdrop-blur-md">
         <table className="w-full max-w-[1000px] table-fixed text-center text-slate-200">
           <thead className="bg-white/5 text-white">
             <tr>
@@ -24,11 +24,15 @@ export const BootcampScheduleTable = () => {
                 key={index}
                 className={cn(
                   'transition-colors hover:bg-white/5',
-                  index === 0 ? 'bg-blue-900/10' : 'bg-purple-900/10'
+                  index === 0 ? 'bg-blue-900/10' : 'bg-purple-900/10',
                 )}
               >
                 <td className="whitespace-nowrap border-r border-white/10 px-3 py-4 text-sm font-semibold tracking-wider sm:text-base">
-                  <span className={index === 0 ? 'text-blue-300' : 'text-purple-300'}>
+                  <span
+                    className={
+                      index === 0 ? 'text-blue-300' : 'text-purple-300'
+                    }
+                  >
                     {group.level}
                   </span>
                 </td>
@@ -36,8 +40,8 @@ export const BootcampScheduleTable = () => {
                   <td
                     key={day}
                     className={cn(
-                      "whitespace-nowrap border-r border-white/10 align-top text-sm font-light sm:text-base",
-                      dayIndex === DAYS.length - 1 && "border-r-0"
+                      'whitespace-nowrap border-r border-white/10 align-top text-sm font-light sm:text-base',
+                      dayIndex === DAYS.length - 1 && 'border-r-0',
                     )}
                   >
                     {group.schedule[day].map((subject, idx) => (
@@ -45,11 +49,16 @@ export const BootcampScheduleTable = () => {
                         key={idx}
                         className={cn(
                           'px-2 py-3',
-                          idx < group.schedule[day].length - 1 && 'border-b border-white/5',
-                          subject !== '' && 'text-slate-100 font-medium'
+                          idx < group.schedule[day].length - 1 &&
+                            'border-b border-white/5',
+                          subject !== '' && 'font-medium text-slate-100',
                         )}
                       >
-                        {subject === '' ? <span className="opacity-0">-</span> : subject}
+                        {subject === '' ? (
+                          <span className="opacity-0">-</span>
+                        ) : (
+                          subject
+                        )}
                       </div>
                     ))}
                   </td>
